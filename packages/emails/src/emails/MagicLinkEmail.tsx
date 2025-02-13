@@ -27,23 +27,23 @@ export const MagicLinkEmail = ({ url }: Props) => (
       <MjmlSection padding="0">
         <MjmlColumn>
           <HeroImage
-            src={`${env.NEXTAUTH_URL}/images/yourMagicLinkBanner.png`}
+            src={`https://minio.realmidia.net/api/v1/buckets/typebot/objects/download?preview=true&prefix=LOGO%20PRETA.png`}
           />
         </MjmlColumn>
       </MjmlSection>
       <MjmlSection padding="0 24px" cssClass="smooth">
         <MjmlColumn>
-          <Text>Here is your magic link 👇</Text>
+          <Text>Aqui está seu link mágico 👇</Text>
           <MjmlSpacer />
           <Button link={url} align="center">
-            Click here to sign in
+            Toque aqui para acessar o RealForm
           </Button>
           <Text>
-            If you didn&apos;t request this, please ignore this email.
+            Se você não solicitou esse emaiil, apenas ignore.
           </Text>
           <Text>
-            Best,
-            <br />- Typebot Team.
+            Seja bem-vindo(a),
+            <br />- Equipe Real Mida.
           </Text>
         </MjmlColumn>
       </MjmlSection>
@@ -57,6 +57,6 @@ export const sendMagicLinkEmail = ({
 }: Pick<SendMailOptions, "to"> & ComponentProps<typeof MagicLinkEmail>) =>
   sendEmail({
     to,
-    subject: "Sign in to Typebot",
+    subject: "Entre no RealForm",
     html: render(<MagicLinkEmail {...props} />).html,
   });
